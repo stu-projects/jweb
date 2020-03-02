@@ -24,7 +24,7 @@ spec:
             steps {
                 container('maven'){
                     configFileProvider([configFile(fileId: 'stusettingsxml', variable: 'MAVEN_SETTINGS_XML')]) {
-                        sh "mvn -X -s $MAVEN_SETTINGS_XML deploy"
+                        sh "mvn -X -s $MAVEN_SETTINGS_XML package"
                     }
                 }
             }
