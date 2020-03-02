@@ -23,7 +23,7 @@ spec:
         stage('Run maven build') {
             steps {
                 container('maven'){
-                    configFileProvider([configFile(fileId: 'settingsxml', variable: 'MAVEN_SETTINGS_XML')]) {
+                    configFileProvider([configFile(fileId: 'settingxml', variable: 'MAVEN_SETTINGS_XML')]) {
                         sh "mvn -X -s $MAVEN_SETTINGS_XML deploy"
                     }
                 }
