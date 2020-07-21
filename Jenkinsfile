@@ -56,7 +56,7 @@ spec:
         //       
         //    }
         //}
-        stage('newer call'){
+        stage('Call a cd procedure'){
             steps{
                 //cloudBeesFlowRunProcedure configuration: 'CdConfiguration', overrideCredential: [credentialId: 'CREDS_PARAM'], procedureName: 'TomcatCheckServer', procedureParameters: '{"procedure":{"procedureName":"TomcatCheckServer","parameters":[{"actualParameterName":"max_time","value":"10"},{"actualParameterName":"tomcat_config_name","value":"Tomcat configuration"}]}}', projectName: 'CloudBees'
                 cloudBeesFlowRunProcedure configuration: 'CdConfiguration', procedureName: 'chkCreds', procedureParameters: '{"procedure":{"procedureName":"chkCreds","parameters":[{"actualParameterName":"p1","value":"${params.p1}"},{"actualParameterName":"p2","value":"${params.p2}"}]}}', projectName: 'Honey'
@@ -65,12 +65,8 @@ spec:
             }
         }
         
-        stage('test'){
-            steps{
-                sh 'find . -name jweb.war'
-            }
-        }
-        stage('publish artifact'){
+        
+        stage('Publish an artifact to CD'){
             steps{
                 cloudBeesFlowPublishArtifact configuration: 'CdConfiguration', repositoryName: 'default', artifactName: 'com.stushq:jweb' , artifactVersion: "${env.BUILD_NUMBER}" ,filePath: 'target/jweb.war'
             }
