@@ -21,8 +21,8 @@ spec:
     }
     parameters{
         //choice(choices: ['dev', 'prd', 'ist'], description: 'What environment ?', name: 'envtarget')
-        string(defaultValue: "", description: 'App Name ?', name: 'p1')
-        string(defaultValue: "", description: 'Component Name ?', name: 'p2')
+        string(defaultValue: "foo", description: 'App Name ?', name: 'p1')
+        string(defaultValue: "bar", description: 'Component Name ?', name: 'p2')
         
     }
     stages {
