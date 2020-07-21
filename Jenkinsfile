@@ -64,6 +64,10 @@ spec:
                
             }
         }
+        
+        stage('test'){
+            sh 'find . -name jweb.war'
+        }
         stage('publish artifact'){
             steps{
                 cloudBeesFlowPublishArtifact configuration: 'CdConfiguration', repositoryName: 'default', artifactName: 'com.stushq:jweb' , artifactVersion: '7.0' ,filePath: 'jweb_flow/target/jweb.war'
