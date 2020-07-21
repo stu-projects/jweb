@@ -18,6 +18,7 @@ spec:
     tty: true
 """
         }
+    }
     parameters{
         //choice(choices: ['dev', 'prd', 'ist'], description: 'What environment ?', name: 'envtarget')
         string(defaultValue: "", description: 'App Name ?', name: 'p1')
