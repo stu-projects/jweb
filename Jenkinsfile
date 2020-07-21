@@ -74,7 +74,7 @@ spec:
         
         stage('Deploy Application'){
             steps{
-               cloudBeesFlowDeployApplication configuration: 'CdConfiguration', applicationName: 'jweb', applicationProcessName: 'install' environmentName: 'dev', projectName: 'Honey'
+               cloudBeesFlowDeployApplication configuration: 'CdConfiguration', applicationName: 'jweb', applicationProcessName: 'install', environmentName: 'dev', projectName: 'Honey'
             }
         }
             
