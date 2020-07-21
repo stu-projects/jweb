@@ -36,10 +36,7 @@ spec:
                 }
             }
         }
-    }
-    stage('call cd proceedure'){
-            
-            
+        stage('call cd proceedure'){    
             steps{
                 step([$class: 'clludbeesFlowRunProcedure',
                       configuration: 'CdConfiguration',
@@ -53,4 +50,5 @@ spec:
                 ])
             }
         }
+    }
 }
