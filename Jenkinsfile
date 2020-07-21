@@ -72,7 +72,7 @@ spec:
         }
         stage('publish artifact'){
             steps{
-                cloudBeesFlowPublishArtifact configuration: 'CdConfiguration', repositoryName: 'default', artifactName: 'com.stushq:jweb' , artifactVersion: ${env.BUILD_NUMBER} ,filePath: 'target/jweb.war'
+                cloudBeesFlowPublishArtifact configuration: 'CdConfiguration', repositoryName: 'default', artifactName: 'com.stushq:jweb' , artifactVersion: "${env.BUILD_NUMBER}" ,filePath: 'target/jweb.war'
             }
         }
             
