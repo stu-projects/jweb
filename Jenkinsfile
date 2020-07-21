@@ -44,8 +44,8 @@ spec:
                       procedureName : 'chkCreds',
                       procedureParameters : """{"procedure":{"procedureName":"chkCreds",
                       "parameters":[
-                            {"actualParameterName":"p1","value":"${params.appName}"},
-                            {"actualParameterName":"p2","value":"${params.compName}"}
+                            {"actualParameterName":"p1","value":"${params.p1}"},
+                            {"actualParameterName":"p2","value":"${params.p2}"}
                       ]}}"""
                 ])
             }
