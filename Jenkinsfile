@@ -18,6 +18,11 @@ spec:
     tty: true
 """
         }
+    parameters{
+        //choice(choices: ['dev', 'prd', 'ist'], description: 'What environment ?', name: 'envtarget')
+        string(defaultValue: "", description: 'App Name ?', name: 'p1')
+        string(defaultValue: "", description: 'Component Name ?', name: 'p2')
+        
     }
     stages {
         stage('Run maven build') {
@@ -31,4 +36,20 @@ spec:
             }
         }
     }
+    stage('call cd proceedure'){
+            
+            
+            steps{
+                step([$class: 'clludbeesFlowRunProcedure',
+                      configuration: 'CdConfiguration',
+                      projectName : 'Honey',
+                      procedureName : 'chkCreds',
+                      procedureParameters : """{"procedure":{"procedureName":"chkCreds",
+                      "parameters":[
+                            {"actualParameterName":"p1","value":"${params.appName}"},
+                            {"actualParameterName":"p2","value":"${params.compName}"}
+                      ]}}"""
+                ])
+            }
+        }
 }
