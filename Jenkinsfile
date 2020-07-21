@@ -38,7 +38,7 @@ spec:
         }
         stage('call cd proceedure'){    
             steps{
-                step([$class: 'clludbeesFlowRunProcedure',
+                step([$class: 'cloudBeesFlowRunProcedure',
                       configuration: 'CdConfiguration',
                       projectName : 'Honey',
                       procedureName : 'chkCreds',
