@@ -74,9 +74,9 @@ spec:
         
         stage('Deploy Application'){
             steps{
-               cloudBeesFlowDeployApplication applicationName: 'jweb', configuration: 'CdConfiguration', , applicationProcessName: 'Install', environmentName: 'dev', projectName: 'Honey', deployParameters: '{"runProcess":{"applicationName":"Honey","applicationProcessName":"Install","parameter":[{"actualParameterName":"Parameter1","value":"value1"},{"actualParameterName":"Parameter2","value":"value2"}]}}',
-               cloudBeesFlowDeployApplication applicationName: 'DemoApplication', applicationProcessName: 'RunCommand', configuration: 'CdConfiguration', deployParameters: '{"runProcess":{"applicationName":"DemoApplication","applicationProcessName":"RunCommand","parameter":[{"actualParameterName":"Parameter1","value":"value1"},{"actualParameterName":"Parameter2","value":"value2"}]}}', environmentName: 'CdEnvironment', projectName: 'CloudBees'
-            }
+               cloudBeesFlowDeployApplication applicationName: 'jweb', configuration: 'CdConfiguration', applicationProcessName: 'Install', environmentName: 'dev', projectName: 'Honey'
+               //cloudBeesFlowDeployApplication applicationName: 'DemoApplication', applicationProcessName: 'RunCommand', configuration: 'CdConfiguration', deployParameters: '{"runProcess":{"applicationName":"DemoApplication","applicationProcessName":"RunCommand","parameter":[{"actualParameterName":"Parameter1","value":"value1"},{"actualParameterName":"Parameter2","value":"value2"}]}}', environmentName: 'CdEnvironment', projectName: 'CloudBees'
+          }
         }
             
     }
