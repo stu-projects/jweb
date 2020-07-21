@@ -66,7 +66,9 @@ spec:
         }
         
         stage('test'){
-            sh 'find . -name jweb.war'
+            steps{
+                sh 'find . -name jweb.war'
+            }
         }
         stage('publish artifact'){
             steps{
