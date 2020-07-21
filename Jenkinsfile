@@ -56,7 +56,7 @@ spec:
                
             }
         }
-        stage('new call'){
+        stage('newer call'){
             steps{
                 cloudBeesFlowRunProcedure configuration: 'CdConfiguration', overrideCredential: [credentialId: 'CREDS_PARAM'], procedureName: 'TomcatCheckServer', procedureParameters: '{"procedure":{"procedureName":"TomcatCheckServer","parameters":[{"actualParameterName":"max_time","value":"10"},{"actualParameterName":"tomcat_config_name","value":"Tomcat configuration"}]}}', projectName: 'CloudBees', runAndWaitOption: [checkInterval: 5, dependOnCdJobOutcome: true]
 
