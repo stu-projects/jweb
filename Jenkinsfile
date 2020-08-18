@@ -41,25 +41,25 @@ spec:
                 }
             }
         }
-    }
-    stage ("Deploy branches") {
-    agent any
 
-    when { 
-        allOf {
-            not { branch 'master' }
-            changeset "bundles/**"
-            expression {  // there are changes in some-directory/...
-                sh(returnStatus: true, script: 'git diff  origin/master --name-only | grep --quiet "^bundles/.*"') == 0
-            }
-            expression {   // ...and nowhere else.
-                sh(returnStatus: true, script: 'git diff origin/master --name-only | grep --quiet --invert-match "^some-directory/.*"') == 1
+        stage ("Deploy branches") {
+        agent any
+
+        when { 
+            allOf {
+                not { branch 'master' }
+                changeset "bundles/**"
+                expression {  // there are changes in some-directory/...
+                    sh(returnStatus: true, script: 'git diff  origin/master --name-only | grep --quiet "^bundles/.*"') == 0
+                }
+                expression {   // ...and nowhere else.
+                    sh(returnStatus: true, script: 'git diff origin/master --name-only | grep --quiet --invert-match "^some-directory/.*"') == 1
+                }
             }
         }
-    }
 
-    steps {
-       echo "running"
-    }
-}
+            steps {
+               echo "running"
+            }
+        }
 }
