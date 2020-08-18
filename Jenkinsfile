@@ -25,7 +25,7 @@ spec:
         stage('new master') {
            when {
               allOf {
-                changeset 'bundles/**'
+                changeset 'bundles/**/'
               }
               beforeAgent true
             } 
