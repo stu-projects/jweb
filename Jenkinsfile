@@ -39,13 +39,9 @@ spec:
         stage ("Deploy branches") {
         when { 
             allOf {
-                not { branch 'master' }
                 changeset "bundles/**"
                 expression {  // there are changes in some-directory/...
-                    sh(returnStatus: true, script: 'git diff  origin/master --name-only | grep --quiet "^some-directory/.*"') == 0
-                }
-                expression {   // ...and nowhere else.
-                    sh(returnStatus: true, script: 'git diff origin/master --name-only | grep --quiet --invert-match "^some-directory/.*"') == 1
+                    sh(returnStatus: true, script: 'git diff  origin/master --name-only | grep --quiet "^bundles/.*"') == 0
                 }
             }
         }
