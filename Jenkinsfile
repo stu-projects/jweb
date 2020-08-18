@@ -39,10 +39,11 @@ spec:
         }
         stage('change to master') {
            when {
-            
+               allOf {
                 //changeset 'bundles/*/*'
                 expression { new_master == false } 
-           }
+               }
+             
               beforeAgent true
             } 
             steps {
