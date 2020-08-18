@@ -21,14 +21,6 @@ spec:
         }
     }
     
-    environment {
-        COMMIT_FILES = sh(script: 'git show --pretty="" --name-only', , returnStdout: true).trim()
-        
-       
-       
-        
-    }
-
     stages {
         stage('new master') {
            when {
@@ -39,8 +31,9 @@ spec:
             } 
             steps {
                 container('maven'){
-                        echo "${COMMIT_FILES}"
+                    echo "${COMMIT_FILES}"
                         //echo "${IMG_NAME}"
+                    script { new_master = true }
                 }
             }
         }
@@ -48,7 +41,7 @@ spec:
            when {
               allOf {
                 //changeset 'bundles/*/*'
-                environment name: 'new_master', value: 'false'
+                 when { expression { new_master == false } }
               }
               beforeAgent true
             } 
