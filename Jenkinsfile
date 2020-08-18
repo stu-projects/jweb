@@ -1,4 +1,4 @@
-def new_master = 'false'
+def new_master = false;
 pipeline {
     agent {
         kubernetes {
