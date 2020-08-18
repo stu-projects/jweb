@@ -40,7 +40,7 @@ spec:
         stage('change to master') {
            when {
                allOf {
-                //changeset 'bundles/*/*'
+                changeset 'bundles/*/*'
                 expression { new_master == false } 
                }
              
