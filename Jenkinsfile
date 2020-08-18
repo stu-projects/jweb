@@ -31,7 +31,7 @@ spec:
             } 
             steps {
                 container('maven'){
-                    echo "${COMMIT_FILES}"
+                    echo "adding a new master"
                         //echo "${IMG_NAME}"
                     script { new_master = true }
                 }
@@ -48,7 +48,7 @@ spec:
             } 
             steps {
                 container('maven'){
-                        echo "${COMMIT_FILES}"
+                        echo "change to master"
                         //echo "${IMG_NAME}"
                 }
             }
