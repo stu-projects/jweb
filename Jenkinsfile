@@ -22,7 +22,7 @@ spec:
     
     environment {
         COMMIT_FILES = sh(script: 'git show --pretty="" --name-only', , returnStdout: true).trim()
-        MNAME = sh(script: 'echo "${COMMIT_FILES}"| awk -F/ '{print $2}'', , returnStdout: true).trim()
+        MNAME = sh(script: 'echo "${COMMIT_FILES}"| awk -F/ {print $2}', , returnStdout: true).trim()
         
     }
 
