@@ -40,7 +40,7 @@ spec:
         when { 
             allOf {
                 not { branch 'master' }
-                changeset "some-directory/**"
+                changeset "bundles/**"
                 expression {  // there are changes in some-directory/...
                     sh(returnStatus: true, script: 'git diff  origin/master --name-only | grep --quiet "^some-directory/.*"') == 0
                 }
