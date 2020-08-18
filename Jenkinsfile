@@ -23,7 +23,7 @@ spec:
     
     environment {
         COMMIT_FILES = sh(script: 'git show --pretty="" --name-only', , returnStdout: true).trim()
-        new_master = 'false'
+        
        
        
         
@@ -47,7 +47,7 @@ spec:
         stage('change to master') {
            when {
               allOf {
-                changeset 'bundles/*/*'
+                //changeset 'bundles/*/*'
                 environment name: 'new_master', value: 'false'
               }
               beforeAgent true
