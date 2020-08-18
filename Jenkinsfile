@@ -22,6 +22,7 @@ spec:
     
     environment {
         COMMIT_FILES = sh(script: 'git show --pretty="" --name-only', , returnStdout: true).trim()
+        new_master = 'false'
        
        
         
@@ -46,6 +47,7 @@ spec:
            when {
               allOf {
                 changeset 'bundles/*/*'
+                environment name: 'new_master', value: 'false'
               }
               beforeAgent true
             } 
