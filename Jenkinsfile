@@ -33,7 +33,7 @@ spec:
                       
                         echo "${COMMIT_FILES}"
                         sh '''
-                           echo "${COMMIT_FILES} | awk -F/ '{print $3}'"    
+                           echo ${COMMIT_FILES} | awk -F/ '{print $2}'    
                         '''
                     
                     
