@@ -34,7 +34,7 @@ spec:
                    
                       
                         echo "${COMMIT_FILES}"
-                        echo "${IMG_NAME}"
+                        //echo "${IMG_NAME}"
                         
                     
                     
