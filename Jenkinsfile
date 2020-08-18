@@ -28,7 +28,21 @@ spec:
     }
 
     stages {
-        stage('Run maven build') {
+        stage('new master') {
+           when {
+              allOf {
+                changeset 'bundles/*'
+              }
+              beforeAgent true
+            } 
+            steps {
+                container('maven'){
+                        echo "${COMMIT_FILES}"
+                        //echo "${IMG_NAME}"
+                }
+            }
+        }
+        stage('change to master') {
            when {
               allOf {
                 changeset 'bundles/*/*'
