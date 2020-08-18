@@ -22,7 +22,7 @@ spec:
     
     environment {
         COMMIT_FILES = sh(script: 'git show --pretty="" --name-only', , returnStdout: true).trim()
-        IMG_NAME = sh(script: 'echo ${COMMIT_FILES} |cut -d/ -f1 ', , returnStdout: true).trim()
+        IMG_NAME = sh(script: 'echo "${COMMIT_FILES}" |cut -d/ -f1 ', , returnStdout: true).trim()
        
         
     }
