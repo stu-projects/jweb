@@ -29,6 +29,12 @@ spec:
 
     stages {
         stage('Run maven build') {
+           when {
+              allOf {
+                changeset 'bundles/*/*'
+              }
+              beforeAgent true
+            } 
             steps {
                 container('maven'){
                         echo "${COMMIT_FILES}"
