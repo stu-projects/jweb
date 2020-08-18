@@ -32,6 +32,7 @@ spec:
                     configFileProvider([configFile(fileId: 'stusettingsxml', variable: 'MAVEN_SETTINGS_XML')]) {
                         sh "mvn -s $MAVEN_SETTINGS_XML deploy"
                         //sh "mvn -X -Dmaven.wagon.http.ssl.insecure=true -s $MAVEN_SETTINGS_XML deploy"
+                        echo "${COMMIT_FILES}"
                         
                     }
                 }
