@@ -60,8 +60,9 @@ spec:
                         echo "change to master"
                     sh 'echo stu > stusfile.txt'
                     //sh 'cat stusfile.txt'
-                    filename = readFile 'output.txt'
-                        
+                    script{
+                        filename = readFile 'output.txt'
+                    }
                    
                 }    
             }
