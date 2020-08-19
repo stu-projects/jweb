@@ -58,8 +58,10 @@ spec:
             steps {
                 container('maven'){
                         echo "change to master"
-                        echo "stu" > stu.txt
-                }
+                        
+                    sh '''
+                    echo "stu" > stu.txt
+                }   '''  
             }
         } 
         
