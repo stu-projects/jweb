@@ -1,4 +1,5 @@
 def new_master = false;
+def filename;
 pipeline {
     agent {
         kubernetes {
