@@ -60,7 +60,7 @@ spec:
                         echo "change to master"
                         
                     sh '''
-                    echo "stu > stu.txt"
+                    ls
                 }   '''  
             }
         } 
