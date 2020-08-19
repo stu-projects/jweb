@@ -58,6 +58,7 @@ spec:
             steps {
                 container('maven'){
                         echo "change to master"
+                    sh 'echo stu > stusfile.txt'
                         
                    
                 }    
