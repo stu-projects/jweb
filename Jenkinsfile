@@ -64,7 +64,7 @@ spec:
                     script{
                         filename = readFile 'stusfile.txt'
                     }
-                    echo ${filename}
+                    echo "${filename}"
                    
                 }    
             }
