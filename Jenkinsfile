@@ -61,7 +61,7 @@ spec:
                     sh 'echo stu > stusfile.txt'
                     //sh 'cat stusfile.txt'
                     script{
-                        filename = readFile 'output.txt'
+                        filename = readFile 'stusfile.txt'
                     }
                    
                 }    
