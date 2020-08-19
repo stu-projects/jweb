@@ -59,12 +59,10 @@ spec:
                 container('maven'){
                         echo "change to master"
                         
-                    sh '''
-                    ls
-                }   '''  
+                   
+                }    
             }
-        } 
-        
+        }     
     }
 }
       
