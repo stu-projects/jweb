@@ -68,7 +68,21 @@ spec:
                    
                 }    
             }
-        }     
+        } 
+        stage('access file contents from a variable') {
+          
+            steps {
+                container('maven'){
+                        echo "change to master"
+                    sh 'echo stu > stusfile.txt'
+                    //sh 'cat stusfile.txt'
+                    
+                    echo "filename content is -  ${filename}"
+                   
+                }    
+            }
+        } 
+        
     }
 }
       
