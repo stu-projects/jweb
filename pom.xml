@@ -67,11 +67,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>https://nexus.stubrowntest.flow-training.beescloud.com/repository/maven-snapshots/</url>
+      <url>https://nexus.maifext.flow-training.beescloud.com//repository/maven-snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>nexus-releases</id>
-      <url>https://nexus.stubrowntest.flow-training.beescloud.com/repository/maven-releases/</url>
+      <url>https://nexus.maifext.flow-training.beescloud.com//repository/maven-releases/</url>
     </repository>
   </distributionManagement>
 </project>
