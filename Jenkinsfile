@@ -19,6 +19,12 @@ spec:
 """
         }
     }
+    parameters{
+        //choice(choices: ['dev', 'prd', 'ist'], description: 'What environment ?', name: 'envtarget')
+        string(defaultValue: "foo", description: 'App Name ?', name: 'p1')
+        string(defaultValue: "bar", description: 'Component Name ?', name: 'p2')
+        
+    }
     stages {
         stage('Run maven build') {
             steps {
@@ -30,5 +36,48 @@ spec:
                 }
             }
         }
+        stage('call cd proceedure'){    
+            steps{
+               step([$class: 'ElectricFlowRunProcedure',
+                      configuration: 'CdConfiguration',
+                      projectName : 'Honey',
+                      procedureName : 'chkCreds',
+                      procedureParameters : """{"procedure":{"procedureName":"chkCreds",
+                      "parameters":[
+                            {"actualParameterName":"p1","value":"${params.p1}"},
+                            {"actualParameterName":"p2","value":"${params.p2}"}
+                      ]}}"""
+                ])
+            }
+        }
+        //stage('new call'){
+        //    steps{
+        //        cloudBeesFlowCallRestApi body: '', configuration: 'CdConfiguration', envVarNameForResult: 'CALL_REST_API_CREATE_PROJECT_RESULT', httpMethod: 'POST', parameters: [[key: 'projectName', value: 'EC-TEST-Jenkins-1.00.00.02'], [key: 'description', value: 'Native Jenkins Test Project']], urlPath: '/projects'
+        //       
+        //    }
+        //}
+
+        //stage('Call a cd procedure'){
+        //    steps{
+        //        //cloudBeesFlowRunProcedure configuration: 'CdConfiguration', overrideCredential: [credentialId: 'CREDS_PARAM'], procedureName: 'TomcatCheckServer', procedureParameters: '{"procedure":{"procedureName":"TomcatCheckServer","parameters":[{"actualParameterName":"max_time","value":"10"},{"actualParameterName":"tomcat_config_name","value":"Tomcat configuration"}]}}', projectName: 'CloudBees'
+        //        cloudBeesFlowRunProcedure configuration: 'CdConfiguration', procedureName: 'chkCreds', procedureParameters: '{"procedure":{"procedureName":"chkCreds","parameters":[{"actualParameterName":"p1","value":"${params.p1}"},{"actualParameterName":"p2","value":"${params.p2}"}]}}', projectName: 'Honey'
+        //
+        //
+        //    }
+        //}
+        
+        
+        stage('Publish an artifact to CD'){
+            steps{
+                cloudBeesFlowPublishArtifact configuration: 'CdConfiguration', repositoryName: 'default', artifactName: 'com.stushq:jweb' , artifactVersion: "${env.BUILD_NUMBER}" ,filePath: 'target/jweb.war'
+            }
+        }
+        
+        stage('Deploy Application'){
+            steps{
+               cloudBeesFlowDeployApplication applicationName: 'jweb', configuration: 'CdConfiguration', applicationProcessName: 'Install', environmentName: 'dev', projectName: 'Honey'
+            }
+        }
+            
     }
 }
