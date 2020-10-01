@@ -72,12 +72,12 @@ spec:
                 cloudBeesFlowPublishArtifact configuration: 'CdConfiguration', repositoryName: 'default', artifactName: 'com.stushq:jweb' , artifactVersion: "${env.BUILD_NUMBER}" ,filePath: 'target/jweb.war'
             }
         }
-        
+        /*
         stage('Deploy Application'){
             steps{
                cloudBeesFlowDeployApplication applicationName: 'honey', configuration: 'CdConfiguration', applicationProcessName: 'installhoney', environmentName: 'dev', projectName: 'Honey'
             }
         }
-            
+        */            
     }
 }
