@@ -75,7 +75,7 @@ spec:
       
         stage('Deploy Application'){
             steps{
-               cloudBeesFlowDeployApplication applicationName: 'honey', configuration: 'CdConfiguration', applicationProcessName: 'Installhoney', environmentName: 'dev', projectName: 'nectar'
+               cloudBeesFlowDeployApplication applicationName: 'honey', configuration: 'CdConfiguration', applicationProcessName: 'InstallHoney', environmentName: 'dev', projectName: 'nectar'
             }
         }
             
