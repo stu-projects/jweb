@@ -40,7 +40,7 @@ spec:
             steps{
                step([$class: 'ElectricFlowRunProcedure',
                       configuration: 'CdConfiguration',
-                      projectName : 'Honey',
+                      projectName : 'nectar',
                       procedureName : 'chkCreds',
                       procedureParameters : """{"procedure":{"procedureName":"chkCreds",
                       "parameters":[
