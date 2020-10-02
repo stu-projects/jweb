@@ -89,10 +89,11 @@ spec:
                                                applicationProcessName: 'InstallHoney',
                                                configuration: 'CdConfiguration',
                                                deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
-                                                       '{"actualParameterName":"Parameter1","value":"${BUILD_NUMBER}"},' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${BUILD_NUMBER}"},' +
-                                                       '{"actualParameterName":"BUILD_URL","value":"${BUILD_URL}"},' +
-                                                       '{"actualParameterName":"Parameter2","value":"value2"}' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${JENKINS_BUILD_NUMBER}"},' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_ID","value":"${JENKINS_BUILD_ID}"},' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_DISPLAY_NAME","value":"${JENKINS_BUILD_DISPLAY_NAME}"},' +
+                                                       '{"actualParameterName":"JENKINS_JOB_NAME","value":"${JENKINS_JOB_NAME}"}' +
+                                                       '{"actualParameterName":"JENKINS_JOB_BASE_NAME","value":"${JENKINS_JOB_BASE_NAME}"}' +
                                                        ']}}',
                                                environmentName: 'dev',
                                                projectName: 'nectar'
