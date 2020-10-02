@@ -78,7 +78,7 @@ spec:
       
         stage('Deploy Application'){
             steps{
-                
+
                 echo ""
                /*cloudBeesFlowDeployApplication applicationName: 'honey',
                                               configuration: 'CdConfiguration',
@@ -90,6 +90,7 @@ spec:
                                                configuration: 'CdConfiguration',
                                                deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
                                                        '{"actualParameterName":"Parameter1","value":"${BUILD_NUMBER}"},' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${BUILD_NUMBER}"},' +
                                                        '{"actualParameterName":"Parameter2","value":"value2"}' +
                                                        ']}}',
                                                environmentName: 'dev',
