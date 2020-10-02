@@ -88,7 +88,8 @@ spec:
                                                configuration: 'CdConfiguration',
                                                deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
                                                        '{"actualParameterName":"Parameter1","value":"value1"},' +
-                                                       '{"actualParameterName":"Parameter2","value":"value2"}]}}',
+                                                       '{"actualParameterName":"Parameter2","value":"value2"}' +
+                                                       ']}}',
                                                environmentName: 'dev',
                                                projectName: 'nectar'
 
