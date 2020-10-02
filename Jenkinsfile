@@ -78,6 +78,8 @@ spec:
       
         stage('Deploy Application'){
             steps{
+                
+                echo ""
                /*cloudBeesFlowDeployApplication applicationName: 'honey',
                                               configuration: 'CdConfiguration',
                                               applicationProcessName: 'InstallHoney',
