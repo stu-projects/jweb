@@ -92,6 +92,7 @@ spec:
                                                        '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${BUILD_NUMBER}"},' +
                                                        '{"actualParameterName":"JENKINS_BUILD_ID","value":"${BUILD_ID}"},' +
                                                        '{"actualParameterName":"JENKINS_BUILD_DISPLAY_NAME","value":"${BUILD_DISPLAY_NAME}"},' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_URL","value":"${BUILD_URL}"},' +
                                                        '{"actualParameterName":"JENKINS_JOB_NAME","value":"${JOB_NAME}"},' +
                                                        '{"actualParameterName":"JENKINS_JOB_BASE_NAME","value":"${JOB_BASE_NAME}"},' +
                                                        ']}}',
