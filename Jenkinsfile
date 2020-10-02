@@ -91,6 +91,7 @@ spec:
                                                deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
                                                        '{"actualParameterName":"Parameter1","value":"${BUILD_NUMBER}"},' +
                                                        '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${BUILD_NUMBER}"},' +
+                                                       '{"actualParameterName":"BUILD_URL","value":"${BUILD_URL}"},' +
                                                        '{"actualParameterName":"Parameter2","value":"value2"}' +
                                                        ']}}',
                                                environmentName: 'dev',
