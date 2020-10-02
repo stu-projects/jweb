@@ -88,12 +88,12 @@ spec:
                 cloudBeesFlowDeployApplication applicationName: 'honey',
                                                applicationProcessName: 'InstallHoney',
                                                configuration: 'CdConfiguration',
-                                               deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${JENKINS_BUILD_NUMBER}"},' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_ID","value":"${JENKINS_BUILD_ID}"},' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_DISPLAY_NAME","value":"${JENKINS_BUILD_DISPLAY_NAME}"},' +
-                                                       '{"actualParameterName":"JENKINS_JOB_NAME","value":"${JENKINS_JOB_NAME}"}' +
-                                                       '{"actualParameterName":"JENKINS_JOB_BASE_NAME","value":"${JENKINS_JOB_BASE_NAME}"}' +
+                                               deployParameters: '{"runProcess":{"applicationName":"honey"  ,"applicationProcessName":"InstallHoney","parameter":[' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_NUMBER"       ,"value"                 :"${JENKINS_BUILD_NUMBER}"},' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_ID"           ,"value"                 :"${JENKINS_BUILD_ID}"},' +
+                                                       '{"actualParameterName":"JENKINS_BUILD_DISPLAY_NAME" ,"value"                 :"${JENKINS_BUILD_DISPLAY_NAME}"},' +
+                                                       '{"actualParameterName":"JENKINS_JOB_NAME"           ,"value"                 :"${JENKINS_JOB_NAME}"},' +
+                                                       '{"actualParameterName":"JENKINS_JOB_BASE_NAME"      ,"value"                 :"${JENKINS_JOB_BASE_NAME}"},' +
                                                        ']}}',
                                                environmentName: 'dev',
                                                projectName: 'nectar'
