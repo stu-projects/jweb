@@ -78,11 +78,11 @@ spec:
       
         stage('Deploy Application'){
             steps{
-               cloudBeesFlowDeployApplication applicationName: 'honey',
+               /*cloudBeesFlowDeployApplication applicationName: 'honey',
                                               configuration: 'CdConfiguration',
                                               applicationProcessName: 'InstallHoney',
                                               environmentName: 'dev', projectName: 'nectar'
-
+                */
                 cloudBeesFlowDeployApplication applicationName: 'honey',
                                                applicationProcessName: 'InstallHoney',
                                                configuration: 'CdConfiguration',
