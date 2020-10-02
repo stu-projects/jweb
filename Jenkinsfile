@@ -87,7 +87,7 @@ spec:
                                                applicationProcessName: 'InstallHoney',
                                                configuration: 'CdConfiguration',
                                                deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
-                                                       '{"actualParameterName":"Parameter1","value":"value1"},' +
+                                                       '{"actualParameterName":"Parameter1","value":${env.BUILD_NUMBER}},' +
                                                        '{"actualParameterName":"Parameter2","value":"value2"}' +
                                                        ']}}',
                                                environmentName: 'dev',
