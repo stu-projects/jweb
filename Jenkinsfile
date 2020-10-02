@@ -86,12 +86,11 @@ spec:
                 cloudBeesFlowDeployApplication applicationName: 'honey',
                                                applicationProcessName: 'InstallHoney',
                                                configuration: 'CdConfiguration',
-                                               deployParameters: '{"runProcess":{"applicationName":"honey",' +
-                                                                  "applicationProcessName":"InstallHoney",
-                                                                  "parameter":[
+                                               deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney", "parameter":[
                                                                     {"actualParameterName":"Parameter1","value":"value1"},
                                                                     {"actualParameterName":"Parameter2","value":"value2"}
                                                                   ]
+                                                }
             }
 
         }
