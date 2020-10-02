@@ -78,22 +78,15 @@ spec:
       
         stage('Deploy Application'){
             steps{
-               /*cloudBeesFlowDeployApplication applicationName: 'honey',
+               cloudBeesFlowDeployApplication applicationName: 'honey',
                                               configuration: 'CdConfiguration',
                                               applicationProcessName: 'InstallHoney',
                                               environmentName: 'dev', projectName: 'nectar'
-                */
+
                 cloudBeesFlowDeployApplication applicationName: 'honey',
                                                applicationProcessName: 'InstallHoney',
                                                configuration: 'CdConfiguration',
-                                               deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney", "parameter":[
-                                                                    {"actualParameterName":"Parameter1","value":"value1"},
-                                                                    {"actualParameterName":"Parameter2","value":"value2"}
-                                                                  ]
-                                                }
-            }
-
-        }
+                                               deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[{"actualParameterName":"Parameter1","value":"value1"},{"actualParameterName":"Parameter2","value":"value2"}]}}',
                                                environmentName: 'dev',
                                                projectName: 'nectar'
 
