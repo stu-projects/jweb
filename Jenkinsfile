@@ -76,30 +76,38 @@ spec:
             }
         }
       
-        stage('Deploy Application'){
-            steps{
+        stage('Deploy Application') {
+            steps {
 
                 echo ""
-               /*cloudBeesFlowDeployApplication applicationName: 'honey',
+                /*cloudBeesFlowDeployApplication applicationName: 'honey',
                                               configuration: 'CdConfiguration',
                                               applicationProcessName: 'InstallHoney',
                                               environmentName: 'dev', projectName: 'nectar'
                 */
                 cloudBeesFlowDeployApplication applicationName: 'honey',
-                                               applicationProcessName: 'InstallHoney',
-                                               configuration: 'CdConfiguration',
-                                               deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${BUILD_NUMBER}"},' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_ID","value":"${BUILD_ID}"},' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_DISPLAY_NAME","value":"${BUILD_DISPLAY_NAME}"},' +
-                                                       '{"actualParameterName":"JENKINS_BUILD_URL","value":"${BUILD_URL}"},' +
-                                                       '{"actualParameterName":"JENKINS_JOB_NAME","value":"${JOB_NAME}"},' +
-                                                       '{"actualParameterName":"JENKINS_JOB_BASE_NAME","value":"${JOB_BASE_NAME}"},' +
-                                                       ']}}',
-                                               environmentName: 'dev',
-                                               projectName: 'nectar'
+                        applicationProcessName: 'InstallHoney',
+                        configuration: 'CdConfiguration',
+                        deployParameters: '{"runProcess":{"applicationName":"honey","applicationProcessName":"InstallHoney","parameter":[' +
+                                '{"actualParameterName":"JENKINS_BUILD_NUMBER","value":"${BUILD_NUMBER}"},' +
+                                '{"actualParameterName":"JENKINS_BUILD_ID","value":"${BUILD_ID}"},' +
+                                '{"actualParameterName":"JENKINS_BUILD_DISPLAY_NAME","value":"${BUILD_DISPLAY_NAME}"},' +
+                                '{"actualParameterName":"JENKINS_BUILD_URL","value":"${BUILD_URL}"},' +
+                                '{"actualParameterName":"JENKINS_JOB_NAME","value":"${JOB_NAME}"},' +
+                                '{"actualParameterName":"JENKINS_JOB_BASE_NAME","value":"${JOB_BASE_NAME}"},' +
+                                ']}}',
+                        environmentName: 'dev',
+                        projectName: 'nectar'
 
             }
+
+
+
+
+        }
+        stage('RunPipeline') {
+            cloudBeesFlowRunPipeline addParam: '{"pipeline":{"pipelineName":"deployHoney","parameters":[{"parameterName":"JENKINS_BUILD_URL","parameterValue":"${BUILD_URL}"}]}}', configuration: 'CdConfiguration', pipelineName: 'deployHoney', projectName: 'nectar'
+
         }
             
     }
