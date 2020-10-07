@@ -19,11 +19,17 @@ spec:
 """
         }
     }
-    parameters{
-        //choice(choices: ['dev', 'prd', 'ist'], description: 'What environment ?', name: 'envtarget')
-        string(defaultValue: "foo", description: 'App Name ?', name: 'p1')
-        string(defaultValue: "bar", description: 'Component Name ?', name: 'p2')
-        
+//    parameters{
+//        //choice(choices: ['dev', 'prd', 'ist'], description: 'What environment ?', name: 'envtarget')
+//        string(defaultValue: "foo", description: 'App Name ?', name: 'p1')
+//        string(defaultValue: "bar", description: 'Component Name ?', name: 'p2')
+//
+//    }
+
+    environment {
+        runProc = 'false'
+        runDeploy = 'false'
+        runPipe = "true"
     }
     stages {
         stage('Run maven build') {
@@ -36,7 +42,10 @@ spec:
                 }
             }
         }
-        stage('call cd proceedure'){    
+        stage('call cd proceedure'){
+            when {
+                environment name: 'runProc', value: 'true'
+            }
             steps{
                step([$class: 'ElectricFlowRunProcedure',
                       configuration: 'CdConfiguration',
@@ -76,7 +85,11 @@ spec:
             }
         }
       
+
         stage('Deploy Application') {
+            when {
+                environment name: 'runDeploy', value: 'true'
+            }
             steps {
 
                 echo ""
@@ -105,7 +118,12 @@ spec:
 
 
         }
+
         stage('RunPipeline') {
+            when {
+                environment name: 'runPipe', value: 'true'
+            }
+
             steps {
                 cloudBeesFlowRunPipeline addParam: '{"pipeline":{"pipelineName":"deployHoney","parameters":[{"parameterName":"JENKINS_BUILD_URL","parameterValue":"${BUILD_URL}"}]}}', configuration: 'CdConfiguration', pipelineName: 'deployHoney', projectName: 'nectar'
             }
